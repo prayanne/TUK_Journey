@@ -23,7 +23,7 @@ class Register : AppCompatActivity(){
 
             if (usr_pw_txt == usr_pc_txt){
                 lifecycleScope.launch {
-                    val request = ResisterRequest(usr_em_txt, usr_id_txt, usr_pw_txt)
+                    val request = ResisterRequest(usr_id_txt, usr_em_txt, usr_pw_txt)
 
                     val response = RetrofitClient.instance.register(request)
                     println(response)

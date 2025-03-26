@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"/>
         <EditText
             android:id="@+id/registerTextPasswordChk"
-            android:hint="비밀번호 황인"
+            android:hint="비밀번호 확인"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
