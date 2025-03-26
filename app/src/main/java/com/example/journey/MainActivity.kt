@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val intent = Intent(this, ActivityLogin::class.java)
+        val intent = Intent(this, Login::class.java)
         binding.go.setOnClickListener { startActivity(intent) }
     }
 }

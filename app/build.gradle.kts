@@ -10,6 +10,7 @@ android {
     buildFeatures{
         viewBinding = true
     }
+
     defaultConfig {
         applicationId = "com.example.journey"
         minSdk = 24
@@ -39,6 +40,16 @@ android {
 }
 
 dependencies {
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // Gson (JSON 변환)
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    // OkHttp (네트워크 클라이언트)
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    // OkHttp 로깅 (디버깅용, 선택사항)
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    // 코루틴 사용
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
