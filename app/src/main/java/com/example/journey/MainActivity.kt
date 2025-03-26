@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val intent = Intent(this, Login::class.java)
-        binding.go.setOnClickListener { startActivity(intent) }
+        val intentLogin = Intent(this, Login::class.java)
+        val intentRegister = Intent(this, Register::class.java)
+        binding.goLogin.setOnClickListener { startActivity(intentLogin) }
+        binding.goRegister.setOnClickListener { startActivity(intentRegister) }
     }
 }

@@ -7,14 +7,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-data class LoginRequest(val username: String, val password: String)
+data class LoginRequest(val username: String, val userpassword: String)
 data class LoginResponse(val result: String, val message: String)
+data class ResisterRequest(val username: String, val useremail: String, val userpassword: String)
+data class ResisterResponse(val result: String, val message: String)
 
 interface ApiService {
 
     @POST("/login")
     suspend fun login(@Body request: LoginRequest): Response<LoginResponse>
-/*
+
+    @POST("/register")
+    suspend fun register(@Body request: ResisterRequest): Response<ResisterResponse>
+/*sd
     @GET("/user/info")
     suspend fun getUserInfo(): Response<UserInfo>
 */
@@ -22,7 +27,7 @@ interface ApiService {
 
 
 object RetrofitClient {
-    private const val BASE_URL = "http://satis.prayanne.co.kr/"
+    private const val BASE_URL = "https://api.prayanne.co.kr"
     private val client = OkHttpClient.Builder().build()
 
     val instance: ApiService by lazy {
