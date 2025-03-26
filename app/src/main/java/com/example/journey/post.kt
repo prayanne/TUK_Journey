@@ -27,7 +27,7 @@ interface ApiService {
 
 
 object RetrofitClient {
-    private const val BASE_URL = "http://satis.prayanne.co.kr"
+    private const val BASE_URL = "https://api.prayanne.co.kr"
     private val client = OkHttpClient.Builder().build()
 
     val instance: ApiService by lazy {
