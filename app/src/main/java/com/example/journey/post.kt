@@ -7,9 +7,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-data class LoginRequest(val username: String, val password: String)
+data class LoginRequest(val username: String, val userpassword: String)
 data class LoginResponse(val result: String, val message: String)
-data class ResisterRequest(val useremail: String, val username: String, val password: String)
+data class ResisterRequest(val username: String, val useremail: String, val userpassword: String)
 data class ResisterResponse(val result: String, val message: String)
 
 interface ApiService {
