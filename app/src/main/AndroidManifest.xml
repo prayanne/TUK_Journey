@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Journey"
 
+        android:name=".MyApplication"
+
         tools:targetApi="31" >
         <activity
             android:name=".MainActivity"

@@ -1,5 +1,6 @@
 package com.example.journey
 
+import android.content.Context
 import okhttp3.OkHttpClient
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -19,23 +20,44 @@ interface ApiService {
 
     @POST("/register")
     suspend fun register(@Body request: ResisterRequest): Response<ResisterResponse>
-/*sd
-    @GET("/user/info")
-    suspend fun getUserInfo(): Response<UserInfo>
-*/
+
 }
 
 
 object RetrofitClient {
     private const val BASE_URL = "https://api.prayanne.co.kr"
-    private val client = OkHttpClient.Builder().build()
 
+    // 토큰 가져오기
+    private fun getToken(): String? {
+        val pref = MyApplication.appContext.getSharedPreferences("auth", Context.MODE_PRIVATE)
+        return pref.getString("jwt_token", null)
+    }
+
+    // OkHttpClient에 Interceptor 추가
+    private val client: OkHttpClient by lazy {
+        OkHttpClient.Builder()
+            .addInterceptor { chain ->
+                val original = chain.request()
+                val requestBuilder = original.newBuilder()
+
+                getToken()?.let { token ->
+                    requestBuilder.addHeader("Authorization", "Bearer $token")
+                }
+
+                chain.proceed(requestBuilder.build())
+            }
+            .build()
+    }
+
+
+    // Retrofit 인스턴스
     val instance: ApiService by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(client)
-            .addConverterFactory(GsonConverterFactory.create()) // JSON 변환
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
     }
 }
+
