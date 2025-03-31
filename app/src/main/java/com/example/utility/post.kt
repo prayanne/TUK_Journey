@@ -1,4 +1,5 @@
-package com.example.journey
+package com.example.utility
+import com.example.journey.MyApplication
 
 import android.content.Context
 import okhttp3.OkHttpClient
@@ -20,7 +21,6 @@ interface ApiService {
 
     @POST("/register")
     suspend fun register(@Body request: ResisterRequest): Response<ResisterResponse>
-
 }
 
 
@@ -36,6 +36,7 @@ object RetrofitClient {
     // OkHttpClient에 Interceptor 추가
     private val client: OkHttpClient by lazy {
         OkHttpClient.Builder()
+            // 아래의 코드가 이후, HTTP 요청이 있을 시, 토큰을 항상 포함하여 전송한다.
             .addInterceptor { chain ->
                 val original = chain.request()
                 val requestBuilder = original.newBuilder()

@@ -7,6 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.journey.databinding.ActivitySignuppageBinding
+import com.example.utility.ResisterRequest
+import com.example.utility.RetrofitClient
 import kotlinx.coroutines.launch
 
 class SignupPageActivity : AppCompatActivity(){

@@ -1,4 +1,4 @@
-package com.example.journey
+package com.example.old
 
 import android.content.Intent
 import android.os.Bundle

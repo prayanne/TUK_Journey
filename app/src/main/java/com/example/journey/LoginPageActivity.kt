@@ -11,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.journey.databinding.ActivityMainpageBinding
+import com.example.utility.LoginRequest
+import com.example.utility.RetrofitClient
 import kotlinx.coroutines.launch
 
 class LoginPageActivity : AppCompatActivity() {
@@ -57,16 +59,18 @@ class LoginPageActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 val request = LoginRequest(usr_id_txt, usr_pw_txt)
-
                 val response = RetrofitClient.instance.login(request)
-                // println(response)
+
                 if (response.isSuccessful) {
                     val result = response.body()
+
                     Toast.makeText(this@LoginPageActivity, result?.message, Toast.LENGTH_SHORT).show()
+
                 } else {
                     Toast.makeText(this@LoginPageActivity, "로그인 실패", Toast.LENGTH_SHORT).show()
-                    Log.d("token", MyApplication.appContext.getSharedPreferences("auth", Context.MODE_PRIVATE).getString("jwt_token", null).toString())
                 }
+                Log.d("token", MyApplication.appContext.getSharedPreferences("auth", Context.MODE_PRIVATE).getString("jwt_token", null).toString())
+
             }
         }
     }
