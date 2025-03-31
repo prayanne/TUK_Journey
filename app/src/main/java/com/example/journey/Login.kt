@@ -23,7 +23,7 @@ class Login : AppCompatActivity(){
                 val request = LoginRequest(usr_id_txt, usr_pw_txt)
 
                 val response = RetrofitClient.instance.login(request)
-                println(response)
+                // println(response)
                 if (response.isSuccessful) {
                     val result = response.body()
                     Toast.makeText(this@Login, result?.message, Toast.LENGTH_SHORT).show()
