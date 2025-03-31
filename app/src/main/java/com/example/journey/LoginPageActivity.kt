@@ -25,7 +25,7 @@ class LoginPageActivity : AppCompatActivity() {
         binding.welcombt.setOnClickListener{
             binding.mainImageView.animate()
                 .translationY(-400f)
-                .setDuration(500)
+                .setDuration(300)
                 .start()
 
             binding.welcome.animate()
@@ -43,10 +43,11 @@ class LoginPageActivity : AppCompatActivity() {
             binding.loginForm.visibility = View.VISIBLE
             binding.loginForm.animate()
                 .alpha(1f)
-                .translationY(-400f)
+                .translationY(-300f)
                 .setDuration(300)
-                .setStartDelay(200)
                 .start()
+//            logo.isClickable = false
+//            logo.isFocusable = false
         }
         binding.idtext.setOnClickListener{
             val intent = Intent(this, SignupPageActivity::class.java)

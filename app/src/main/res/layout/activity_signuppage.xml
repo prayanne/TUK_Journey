@@ -28,7 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="32dp"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
             android:clipChildren="false"
             android:clipToPadding="false">
 
@@ -36,9 +37,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
-                android:textSize="25dp"
+                android:textSize="30dp"
                 android:layout_margin="10dp"
-                />
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -57,13 +58,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/registerTextPassword"
                 android:inputType="textPassword"
-                android:hint="비밀번호"/>
+                android:hint="비밀번호"
+                android:imeOptions="actionDone"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/registerTextPasswordChk"
-                android:hint="비밀번호 확인" />
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"
+                android:hint="비밀번호 확인"/>
 
             <Button
                 android:layout_gravity="right"
@@ -73,7 +77,9 @@
                 android:text="Sign Up"
                 android:backgroundTint="#B8E0FD"
                 android:layout_marginTop="10dp"
-                />
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
             <TextView
                 android:id="@+id/idtext"
                 android:layout_width="wrap_content"
@@ -82,8 +88,8 @@
                 android:textSize="15dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:textColor="#808080"
-                />
+                android:textColor="#808080"/>
+
         </LinearLayout>
     </LinearLayout>
 
