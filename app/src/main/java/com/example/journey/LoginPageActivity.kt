@@ -63,7 +63,11 @@ class LoginPageActivity : AppCompatActivity() {
                 val response = RetrofitClient.instance.login(request)
 
                 if (response.isSuccessful) {
-                    val result = response.body()
+                    val res = response
+                    val result = res.body()
+
+                    val pref = getSharedPreferences("auth", Context.MODE_PRIVATE)
+                    pref.edit().putString("jwt_token", res.body()?.message /* 또는 it.token */).apply()
 
                     Toast.makeText(this@LoginPageActivity, result?.message, Toast.LENGTH_SHORT).show()
 
